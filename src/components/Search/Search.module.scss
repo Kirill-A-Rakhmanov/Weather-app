@@ -1,0 +1,37 @@
+.wrapper {
+}
+.search {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  border-radius: 28px;
+  background-color: #fafafa;
+  width: 500px;
+  &:focus-within {
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
+  }
+}
+.action {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon {
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.input {
+  font-size: 16px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  flex: 1;
+  color: #010;
+  &::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+  }
+}
