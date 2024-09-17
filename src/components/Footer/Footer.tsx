@@ -1,7 +1,5 @@
-import React from "react";
-
+import { Container } from "@/shared/shared";
 import styles from "./Footer.module.scss";
-import { Container } from "../../shared/shared";
 
 export const Footer = () => {
   return (

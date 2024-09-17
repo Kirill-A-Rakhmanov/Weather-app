@@ -1,8 +1,6 @@
-import React from "react";
-
 import styles from "./Header.module.scss";
-import { Container } from "../../shared/shared";
-import { Search } from "../Search/Search";
+import { Container } from "@/shared/shared";
+import { Search } from "../components";
 
 export const Header = () => {
   return (

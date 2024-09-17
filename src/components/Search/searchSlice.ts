@@ -1,6 +1,6 @@
+import { RootState } from "@/app/store";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import type { RootState } from "../../app/store";
 
 interface SearchState {
   value: string;

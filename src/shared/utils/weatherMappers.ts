@@ -1,4 +1,4 @@
-import { WeatherCurrent, WeatherHour } from "../../components/components";
+import { WeatherCurrent, WeatherHour } from "@/components/components";
 
 export const mapWeatherCurrent = (data: any) => {
   const mapped: WeatherCurrent = {

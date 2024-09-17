@@ -2,8 +2,8 @@ import React from "react";
 
 import styles from "./Search.module.scss";
 import { IoSearch, IoClose } from "react-icons/io5";
-import { useAppDispatch } from "../../app/hooks";
 import { setSearchValue } from "./searchSlice";
+import { useAppDispatch } from "@/app/hooks";
 
 export const Search = () => {
   const dispatch = useAppDispatch();

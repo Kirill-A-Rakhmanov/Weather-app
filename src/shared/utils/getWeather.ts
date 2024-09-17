@@ -1,4 +1,4 @@
-import { API_KEY, weatherApi } from "../api/weatherApi";
+import { API_KEY, weatherApi } from "../shared";
 
 export const getWeatherToday = (cityName: string) => {
   const url: string = [cityName, "today"].join("/");

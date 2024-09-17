@@ -1,6 +1,6 @@
 import React from "react";
-import { Footer, Header } from "../components/components";
-import CurrentWeather from "../components/CurrentWeather/CurrentWeather";
+
+import { CurrentWeather, Footer, Header } from "@/components/components";
 
 export const App = () => {
   return (

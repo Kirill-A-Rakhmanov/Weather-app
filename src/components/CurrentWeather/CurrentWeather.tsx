@@ -1,15 +1,12 @@
 import React from "react";
-import { useAppSelector } from "../../app/hooks";
-import { selectSearch, WeatherCurrent } from "../components";
-import {
-  Container,
-  getWeatherToday,
-  mapWeatherCurrent,
-} from "../../shared/shared";
 
 import styles from "./CurrentWeather.module.scss";
+import { useAppSelector } from "@/app/hooks";
+import { getWeatherToday, mapWeatherCurrent, Container } from "@/shared/shared";
+import { selectSearch } from "../components";
+import { WeatherCurrent } from "./types";
 
-const CurrentWeather = () => {
+export const CurrentWeather = () => {
   const { value } = useAppSelector(selectSearch);
   const [weatherData, setWeatherInfo] = React.useState<WeatherCurrent>();
 
@@ -39,5 +36,3 @@ const CurrentWeather = () => {
     </section>
   );
 };
-
-export default CurrentWeather;
