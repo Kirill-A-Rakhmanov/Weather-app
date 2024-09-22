@@ -22,6 +22,7 @@ export const getWeatherToday = (cityName: string) => {
   const params = {
     key: API_KEY,
     unitGroup: "metric",
+    iconSet: "icons2",
     include: include.join(","),
     elements: elements.join(","),
   };
@@ -31,7 +32,8 @@ export const getWeatherToday = (cityName: string) => {
     .then((response) => {
       return response.data;
     })
-    .catch((error) => {
+    .catch(() => {
+      alert("No data found, please try again");
       return undefined;
     });
   return data;
@@ -45,6 +47,7 @@ export const getWeatherFuture = (cityName: string) => {
 
   const params = {
     unitGroup: "metric",
+    iconSet: "icons2",
     include: include.join(","),
     elements: elements.join(","),
   };
@@ -54,7 +57,7 @@ export const getWeatherFuture = (cityName: string) => {
     .then((response) => {
       return response.data;
     })
-    .catch((error) => {
+    .catch(() => {
       return undefined;
     });
   return data;
@@ -68,6 +71,7 @@ export const getWeatherSmall = (cityName: string) => {
 
   const params = {
     unitGroup: "metric",
+    iconSet: "icons2",
     include: include.join(","),
     elements: elements.join(","),
   };
@@ -77,7 +81,7 @@ export const getWeatherSmall = (cityName: string) => {
     .then((response) => {
       return response.data;
     })
-    .catch((error) => {
+    .catch(() => {
       return undefined;
     });
   return data;

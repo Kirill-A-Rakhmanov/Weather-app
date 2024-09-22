@@ -1,12 +1,13 @@
 import React from "react";
 
-import styles from "./CurrentWeather.module.scss";
+import styles from "./WeatherBlock.module.scss";
 import { useAppSelector } from "@/app/hooks";
 import { getWeatherToday, mapWeatherCurrent, Container } from "@/shared/shared";
 import { selectSearch } from "../components";
 import { WeatherCurrent } from "./types";
+import WeatherToday from "../WeatherToday/WeatherToday";
 
-export const CurrentWeather = () => {
+export const WeatherBlock = () => {
   const { value } = useAppSelector(selectSearch);
   const [weatherData, setWeatherInfo] = React.useState<WeatherCurrent>();
 
@@ -31,7 +32,9 @@ export const CurrentWeather = () => {
   return (
     <section className={styles.weather}>
       <Container>
-        <div>{weatherData ? weatherData.cityName : "no data"}</div>
+        <div>
+          {weatherData ? <WeatherToday data={weatherData} /> : "no data"}
+        </div>
       </Container>
     </section>
   );
