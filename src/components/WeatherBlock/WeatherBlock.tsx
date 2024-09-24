@@ -1,29 +1,45 @@
 import React from "react";
 
 import styles from "./WeatherBlock.module.scss";
-import { useAppSelector } from "@/app/hooks";
-import { getWeatherToday, mapWeatherCurrent, Container } from "@/shared/shared";
-import { selectSearch } from "../components";
-import { WeatherCurrent } from "./types";
-import WeatherToday from "../WeatherToday/WeatherToday";
+import {
+  Container,
+  Data,
+  getWeather,
+  mapResponseData,
+  Response,
+  WeatherFull,
+} from "@/shared/shared";
+import { selectSearch, useAppSelector } from "@/redux/redux";
 
 export const WeatherBlock = () => {
   const { value } = useAppSelector(selectSearch);
-  const [weatherData, setWeatherInfo] = React.useState<WeatherCurrent>();
+  const [weatherData, setWeatherInfo] = React.useState<Data<WeatherFull>>();
 
   React.useEffect(() => {
-    const getWeather = async (cityName: string) => {
-      const data = await getWeatherToday(cityName);
-      if (!data) {
-        setWeatherInfo(undefined);
-        return;
-      }
-
-      setWeatherInfo(mapWeatherCurrent(data));
-    };
+    const include: string[] = ["current", "hours"];
+    const elements: string[] = [
+      "temp",
+      "datetime",
+      "tempmax",
+      "tempmin",
+      "pressure",
+      "visibility",
+      "windspeed",
+      "winddir",
+      "feelslike",
+      "humidity",
+      "icon",
+      "uvindex",
+      "conditions",
+    ];
 
     if (value) {
-      getWeather(value);
+      getWeather<Response<WeatherFull>>(
+        value,
+        "next9days",
+        include,
+        elements
+      ).then((data) => setWeatherInfo(mapResponseData(data)));
     }
   }, [value]);
 
@@ -32,9 +48,7 @@ export const WeatherBlock = () => {
   return (
     <section className={styles.weather}>
       <Container>
-        <div>
-          {weatherData ? <WeatherToday data={weatherData} /> : "no data"}
-        </div>
+        {/* <div>{weatherData ? weatherData.cityName : "no data"}</div> */}
       </Container>
     </section>
   );

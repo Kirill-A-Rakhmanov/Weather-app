@@ -1,9 +1,10 @@
-import { searchSlice } from "@/components/components";
 import { configureStore } from "@reduxjs/toolkit";
+import { searchSlice, weatherSlice } from "./slices/slices";
 
 export const store = configureStore({
   reducer: {
     search: searchSlice.reducer,
+    weather: weatherSlice.reducer,
   },
 });
 
