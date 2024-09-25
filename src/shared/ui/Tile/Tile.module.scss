@@ -1,0 +1,21 @@
+@import "@/shared/ui/variables.scss";
+
+.tile {
+  background-color: rgba(#fff, 0.5);
+  padding: 10px;
+  border-radius: 20px;
+  aspect-ratio: 1;
+}
+.x2 {
+  grid-column: span 2;
+  aspect-ratio: 2;
+}
+.x4 {
+  grid-column: span 2;
+  grid-row: span 2;
+  padding: 40px;
+  aspect-ratio: 1;
+}
+.long {
+  grid-column: 1/-1;
+}

@@ -37,3 +37,14 @@ export interface Response<T> {
   timezone: string;
   tzoffset: number;
 }
+
+export interface WeatherState<T> {
+  data: Data<T> | null;
+  loading: boolean;
+}
+
+export interface FavoriteWeather {
+  id: number;
+  name: string;
+  resolvedAddress: string;
+}

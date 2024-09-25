@@ -1,2 +1,2 @@
 export * from "./searchSlice";
-export * from "./weatherSlice";
+export * from "./favoriteSlice";

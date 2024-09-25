@@ -3,52 +3,58 @@ import React from "react";
 import styles from "./WeatherBlock.module.scss";
 import {
   Container,
-  Data,
-  getWeather,
+  getWeatherFull,
   mapResponseData,
-  Response,
   WeatherFull,
+  WeatherState,
 } from "@/shared/shared";
-import { selectSearch, useAppSelector } from "@/redux/redux";
+import {
+  selectSearch,
+  setSearchValue,
+  useAppDispatch,
+  useAppSelector,
+} from "@/redux/redux";
+import Weather from "../Weather/Weather";
+import NoWeather from "../NoWeather/NoWeather";
 
 export const WeatherBlock = () => {
+  const dispatch = useAppDispatch();
   const { value } = useAppSelector(selectSearch);
-  const [weatherData, setWeatherInfo] = React.useState<Data<WeatherFull>>();
+  const [weather, setWeather] = React.useState<WeatherState<WeatherFull>>({
+    data: null,
+    loading: false,
+  });
 
   React.useEffect(() => {
-    const include: string[] = ["current", "hours"];
-    const elements: string[] = [
-      "temp",
-      "datetime",
-      "tempmax",
-      "tempmin",
-      "pressure",
-      "visibility",
-      "windspeed",
-      "winddir",
-      "feelslike",
-      "humidity",
-      "icon",
-      "uvindex",
-      "conditions",
-    ];
-
     if (value) {
-      getWeather<Response<WeatherFull>>(
-        value,
-        "next9days",
-        include,
-        elements
-      ).then((data) => setWeatherInfo(mapResponseData(data)));
+      setWeather({ loading: true, data: null });
+      getWeatherFull(value)
+        .then((data) =>
+          setWeather({ loading: false, data: mapResponseData(data) })
+        )
+        .catch(() => {
+          dispatch(setSearchValue(""));
+          setWeather({
+            loading: false,
+            data: null,
+          });
+          window.alert("Cannot find the city");
+        });
     }
   }, [value]);
 
-  console.log(weatherData);
+  console.log(weather);
 
   return (
     <section className={styles.weather}>
       <Container>
-        {/* <div>{weatherData ? weatherData.cityName : "no data"}</div> */}
+        <div className={styles.content}>
+          {!weather.loading && !weather.data ? (
+            <NoWeather />
+          ) : (
+            <Weather data={weather.data} loading={weather.loading} />
+          )}
+        </div>
       </Container>
     </section>
   );

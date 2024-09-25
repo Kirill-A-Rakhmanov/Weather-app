@@ -1,6 +1,6 @@
 import { Data, Response } from "../shared";
 
-export const mapResponseData = <T>(data: Response<T>) => {
+export const mapResponseData = <T>(data: Response<T>): Data<T> => {
   const mapped: Data<T> = {
     address: data.address,
     currentConditions: data.currentConditions,
