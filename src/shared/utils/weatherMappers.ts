@@ -6,6 +6,8 @@ export const mapResponseData = <T>(data: Response<T>): Data<T> => {
     currentConditions: data.currentConditions,
     resolvedAddress: data.resolvedAddress,
     days: data.days,
+    timezone: data.timezone,
+    tzoffset: data.tzoffset,
   };
   return mapped;
 };

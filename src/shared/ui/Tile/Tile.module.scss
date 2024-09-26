@@ -5,6 +5,9 @@
   padding: 10px;
   border-radius: 20px;
   aspect-ratio: 1;
+  @media (max-width: 768px) {
+    border-radius: 10px;
+  }
 }
 .x2 {
   grid-column: span 2;
@@ -15,6 +18,9 @@
   grid-row: span 2;
   padding: 40px;
   aspect-ratio: 1;
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
 }
 .long {
   grid-column: 1/-1;

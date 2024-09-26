@@ -24,6 +24,8 @@ export interface Data<T> {
   currentConditions: T;
   days?: Day<T>[];
   resolvedAddress: string;
+  timezone: string;
+  tzoffset: number;
 }
 
 export interface Response<T> {

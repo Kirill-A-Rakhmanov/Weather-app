@@ -13,18 +13,21 @@
 }
 .day {
   background-color: $day;
+  color: $black;
 }
 .rain {
   background-color: $rain;
+  color: $black;
 }
 .night {
   background-color: $night;
+  color: $white;
 }
 .title {
   font-size: 24px;
   font-weight: 600;
   @media (max-width: 768px) {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 .content {

@@ -22,6 +22,9 @@ const Weather = ({ data, loading }: WeatherState<WeatherFull>) => {
           icon={data!.currentConditions.icon}
           resolvedAddress={data!.resolvedAddress}
           conditions={data!.currentConditions.conditions}
+          tempmin={data!.days![0].tempmin!}
+          tempmax={data!.days![0].tempmax!}
+          tzoffset={data!.tzoffset}
         />
       </div>
     </div>
