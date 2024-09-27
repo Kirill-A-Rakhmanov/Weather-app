@@ -6,7 +6,7 @@ interface Props {
   className?: string;
 }
 
-const WeatherIcon = ({ icon, className }: Props) => {
+export const WeatherIcon = ({ icon, className }: Props) => {
   return (
     <div className={clsx(styles.wrapper, className)}>
       <img
@@ -17,5 +17,3 @@ const WeatherIcon = ({ icon, className }: Props) => {
     </div>
   );
 };
-
-export default WeatherIcon;

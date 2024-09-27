@@ -1,6 +1,6 @@
 import styles from "./NoWeather.module.scss";
 
-const NoWeather = () => {
+export const NoWeather = () => {
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.header}>
@@ -12,5 +12,3 @@ const NoWeather = () => {
     </div>
   );
 };
-
-export default NoWeather;

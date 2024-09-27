@@ -1,11 +1,11 @@
 import { getWeatherColor, WeatherFull, WeatherState } from "@/shared/shared";
-import CurrentWeather from "./widgets/CurrentWeather/CurrentWeather";
+import { CurrentWeather, HoursWeather } from "@/widgets/widgets";
 
 import styles from "./Weather.module.scss";
-import Spinner from "../Spinner/Spinner";
 import clsx from "clsx";
+import { Spinner } from "../Spinner/Spinner";
 
-const Weather = ({ data, loading }: WeatherState<WeatherFull>) => {
+export const Weather = ({ data, loading }: WeatherState<WeatherFull>) => {
   return loading ? (
     <Spinner />
   ) : (
@@ -26,9 +26,8 @@ const Weather = ({ data, loading }: WeatherState<WeatherFull>) => {
           tempmax={data!.days![0].tempmax!}
           tzoffset={data!.tzoffset}
         />
+        <HoursWeather hours={data!.days![0].hours!} tzoffset={data!.tzoffset} />
       </div>
     </div>
   );
 };
-
-export default Weather;

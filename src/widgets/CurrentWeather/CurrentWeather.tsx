@@ -1,5 +1,4 @@
-import { getTimeByTimezone, Tile } from "@/shared/shared";
-import WeatherIcon from "@/shared/ui/WeatherIcon/WeatherIcon";
+import { Tile, useDatetime, WeatherIcon } from "@/shared/shared";
 import styles from "./CurrentWeather.module.scss";
 
 interface Props {
@@ -12,8 +11,8 @@ interface Props {
   tzoffset: number;
 }
 
-const CurrentWeather = (props: Props) => {
-  const { hour, minutes } = getTimeByTimezone(props.tzoffset);
+export const CurrentWeather = (props: Props) => {
+  const { hour, minutes } = useDatetime(props.tzoffset);
 
   return (
     <Tile shape="x4" className={styles.tile}>
@@ -33,5 +32,3 @@ const CurrentWeather = (props: Props) => {
     </Tile>
   );
 };
-
-export default CurrentWeather;

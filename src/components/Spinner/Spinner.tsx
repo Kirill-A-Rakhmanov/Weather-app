@@ -1,9 +1,7 @@
-import React from "react";
-
 import styles from "./Spinner.module.scss";
 import { Oval } from "react-loader-spinner";
 
-const Spinner = () => {
+export const Spinner = () => {
   return (
     <div className={styles.wrapper}>
       <Oval
@@ -19,5 +17,3 @@ const Spinner = () => {
     </div>
   );
 };
-
-export default Spinner;

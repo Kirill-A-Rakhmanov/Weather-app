@@ -14,8 +14,7 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "@/redux/redux";
-import Weather from "../Weather/Weather";
-import NoWeather from "../NoWeather/NoWeather";
+import { NoWeather, Weather } from "../components";
 
 export const WeatherBlock = () => {
   const dispatch = useAppDispatch();
@@ -43,7 +42,7 @@ export const WeatherBlock = () => {
     }
   }, [value]);
 
-  console.log(weather);
+  // console.log(weather);
 
   return (
     <section className={styles.weather}>
