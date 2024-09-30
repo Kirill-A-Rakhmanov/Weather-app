@@ -10,6 +10,7 @@ export interface WeatherShort {
 export interface WeatherFull extends WeatherShort {
   feelslike: number;
   humidity: number;
+  dew: number;
   pressure: number;
   uvindex: number;
   visibility: number;

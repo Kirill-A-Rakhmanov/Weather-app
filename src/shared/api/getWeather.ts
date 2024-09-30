@@ -37,6 +37,7 @@ export const getWeatherFull = (cityName: string) => {
     "winddir",
     "feelslike",
     "humidity",
+    "dew",
     "icon",
     "uvindex",
     "conditions",
