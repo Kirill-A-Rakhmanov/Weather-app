@@ -1,11 +1,18 @@
 import { getWeatherColor, WeatherFull, WeatherState } from "@/shared/shared";
-import { CurrentWeather, HoursWeather } from "@/widgets/widgets";
+import {
+  CurrentWeather,
+  DaysWeather,
+  HoursWeather,
+  Humidity,
+} from "@/widgets/widgets";
 
 import styles from "./Weather.module.scss";
 import clsx from "clsx";
 import { Spinner } from "../Spinner/Spinner";
 
 export const Weather = ({ data, loading }: WeatherState<WeatherFull>) => {
+  console.log(data);
+
   return loading ? (
     <Spinner />
   ) : (
@@ -17,16 +24,10 @@ export const Weather = ({ data, loading }: WeatherState<WeatherFull>) => {
     >
       <h2 className={styles.title}>{data!.resolvedAddress}</h2>
       <div className={styles.content}>
-        <CurrentWeather
-          temp={data!.currentConditions.temp}
-          icon={data!.currentConditions.icon}
-          resolvedAddress={data!.resolvedAddress}
-          conditions={data!.currentConditions.conditions}
-          tempmin={data!.days![0].tempmin!}
-          tempmax={data!.days![0].tempmax!}
-          tzoffset={data!.tzoffset}
-        />
+        <CurrentWeather data={data!} />
         <HoursWeather hours={data!.days![0].hours!} tzoffset={data!.tzoffset} />
+        <DaysWeather days={data!.days!} />
+        <Humidity humidity={data!.currentConditions.humidity} />
       </div>
     </div>
   );

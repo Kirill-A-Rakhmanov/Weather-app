@@ -1,6 +1,6 @@
 import { Tile, useDatetime, WeatherFull } from "@/shared/shared";
 import styles from "./HoursWeather.module.scss";
-import { Hour } from "../widgets";
+import { Hour } from "./Hour/Hour";
 
 interface Props {
   hours: WeatherFull[];

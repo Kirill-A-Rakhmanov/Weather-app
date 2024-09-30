@@ -13,6 +13,7 @@
 .top {
   width: 100%;
   display: flex;
+  gap: 10px;
   justify-content: space-between;
   font-size: 20px;
   font-weight: 600;
@@ -25,8 +26,11 @@
 }
 
 .icon {
-  flex: 1 1 auto;
+  flex: 1 0 auto;
   width: 70%;
+  @media (max-width: 768px) {
+    flex: 0 0 140px;
+  }
 }
 
 .info {

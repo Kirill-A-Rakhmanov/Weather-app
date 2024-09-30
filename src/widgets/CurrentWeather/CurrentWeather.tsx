@@ -1,32 +1,40 @@
-import { Tile, useDatetime, WeatherIcon } from "@/shared/shared";
+import {
+  Data,
+  Tile,
+  useDatetime,
+  WeatherFull,
+  WeatherIcon,
+} from "@/shared/shared";
 import styles from "./CurrentWeather.module.scss";
 
 interface Props {
-  temp: number;
-  conditions: string;
-  resolvedAddress: string;
-  icon: string;
-  tempmin: number;
-  tempmax: number;
-  tzoffset: number;
+  data: Data<WeatherFull>;
 }
 
 export const CurrentWeather = (props: Props) => {
-  const { hour, minutes } = useDatetime(props.tzoffset);
+  const temp = props.data.currentConditions.temp;
+  const icon = props.data.currentConditions.icon;
+  // const resolvedAddress = props.data.resolvedAddress;
+  const conditions = props.data.currentConditions.conditions;
+  const tempmin = props.data.days![0].tempmin!;
+  const tempmax = props.data.days![0].tempmax!;
+  const tzoffset = props.data.tzoffset;
+
+  const { hour, minutes } = useDatetime(tzoffset);
 
   return (
     <Tile shape="x4" className={styles.tile}>
       <div className={styles.top}>
         <h2 className={styles.title}>Current weather</h2>
-        <div className={styles.time}>Time {[hour, minutes].join(":")}</div>
+        <div className={styles.time}>{[hour, minutes].join(":")}</div>
       </div>
-      <WeatherIcon icon={props.icon} className={styles.icon} />
+      <WeatherIcon icon={icon} className={styles.icon} />
       <div className={styles.info}>
-        <h3 className={styles.conditions}>{props.conditions}</h3>
+        <h3 className={styles.conditions}>{conditions}</h3>
         <div className={styles.tempInfo}>
-          <div className={styles.min}>Min {Math.round(props.tempmin)} °C</div>
-          <div className={styles.temp}>{Math.round(props.temp)} °C</div>
-          <div className={styles.max}>Max {Math.round(props.tempmax)} °C</div>
+          <div className={styles.min}>Min {Math.round(tempmin)}°</div>
+          <div className={styles.temp}>{Math.round(temp)} °C</div>
+          <div className={styles.max}>Max {Math.round(tempmax)}°</div>
         </div>
       </div>
     </Tile>

@@ -1,3 +1,4 @@
 export * from "./CurrentWeather/CurrentWeather";
 export * from "./HoursWeather/HoursWeather";
-export * from "./Hour/Hour";
+export * from "./DaysWeather/DaysWeather";
+export * from "./Humidity/Humidity";
