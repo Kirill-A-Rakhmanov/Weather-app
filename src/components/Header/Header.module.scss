@@ -9,6 +9,8 @@
   gap: 20px;
   align-items: center;
   @media (max-width: 768px) {
+    column-gap: 20px;
+    row-gap: 5px;
     grid-template: repeat(2, 1fr) / repeat(2, 1fr);
   }
 }
@@ -22,6 +24,7 @@
 }
 .search {
   justify-self: center;
+  width: 100%;
   @media (max-width: 768px) {
     order: 3;
     grid-column: span 2;

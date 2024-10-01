@@ -25,7 +25,7 @@ export const Search = () => {
     setValue("");
   };
 
-  const search = async (cityName: string) => {
+  const search = (cityName: string) => {
     if (!cityName) return;
     dispatch(setSearchValue(cityName));
   };
