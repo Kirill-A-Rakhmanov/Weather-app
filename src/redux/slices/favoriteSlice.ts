@@ -15,17 +15,24 @@ export const favoriteSlice = createSlice({
   name: "favorite",
   initialState,
   reducers: {
-    addToFavorite(state, action: PayloadAction<FavoriteWeather>) {
-      state.list.push(action.payload);
+    addToFavorite(state, action: PayloadAction<string>) {
+      const newObj: FavoriteWeather = {
+        id: Date.now(),
+        resolvedAddress: action.payload,
+        name: action.payload.split(",")[0],
+      };
+      state.list.push(newObj);
     },
     removeFromFavorite(state, action: PayloadAction<number>) {
       state.list = state.list.filter((obj) => obj.id !== action.payload);
     },
-    // rename(state, action) {},
+    removeAll(state) {
+      state.list = [];
+    },
   },
 });
 
-export const {} = favoriteSlice.actions;
+export const { addToFavorite, removeFromFavorite } = favoriteSlice.actions;
 
 export const selectFavorite = (state: RootState) => state.favorite;
 

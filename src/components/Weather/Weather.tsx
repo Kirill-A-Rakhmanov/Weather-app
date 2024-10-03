@@ -1,4 +1,9 @@
-import { getWeatherColor, WeatherFull, WeatherState } from "@/shared/shared";
+import {
+  AddToFavorite,
+  getWeatherColor,
+  WeatherFull,
+  WeatherState,
+} from "@/shared/shared";
 import {
   CurrentWeather,
   DaysWeather,
@@ -16,8 +21,6 @@ import clsx from "clsx";
 import { Spinner } from "../Spinner/Spinner";
 
 export const Weather = ({ data, loading }: WeatherState<WeatherFull>) => {
-  console.log(data);
-
   return loading ? (
     <Spinner />
   ) : (
@@ -29,7 +32,9 @@ export const Weather = ({ data, loading }: WeatherState<WeatherFull>) => {
     >
       <div className={styles.top}>
         <h2 className={styles.title}>{data!.resolvedAddress}</h2>
-        <div className={styles.fav}>Add</div>
+        <div className={styles.button}>
+          <AddToFavorite resolvedAdddress={data!.resolvedAddress} />
+        </div>
       </div>
       <div className={styles.content}>
         <CurrentWeather data={data!} />

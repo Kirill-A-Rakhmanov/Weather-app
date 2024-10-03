@@ -7,3 +7,4 @@ export * from "./FeelsLike/FeelsLike";
 export * from "./Visibility/Visibility";
 export * from "./Pressure/Pressure";
 export * from "./Wind/Wind";
+export * from "./WeatherFavorite/WeatherFavorite";

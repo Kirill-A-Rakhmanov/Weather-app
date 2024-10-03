@@ -42,8 +42,6 @@ export const WeatherBlock = () => {
     }
   }, [value]);
 
-  // console.log(weather);
-
   return (
     <section className={styles.weather}>
       <Container>

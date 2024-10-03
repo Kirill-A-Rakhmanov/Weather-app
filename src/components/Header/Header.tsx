@@ -1,6 +1,6 @@
 import styles from "./Header.module.scss";
 import { Container } from "@/shared/shared";
-import { Search } from "../components";
+import { Favorite, Search } from "../components";
 
 export const Header = () => {
   return (
@@ -13,7 +13,7 @@ export const Header = () => {
           <Search />
         </div>
         <div className={styles.info}>
-          <button className={styles.saved}>Saved locations</button>
+          <Favorite />
         </div>
       </Container>
     </header>

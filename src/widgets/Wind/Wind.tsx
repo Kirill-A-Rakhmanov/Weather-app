@@ -26,7 +26,7 @@ export const Wind = ({ winddir, windspeed, maxwindspeed }: Props) => {
       "West",
       "North-West",
     ];
-    return sides[Math.round((value - 22.5) / 45)];
+    return sides[Math.round(value / 45)];
   };
 
   return (

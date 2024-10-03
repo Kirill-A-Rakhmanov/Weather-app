@@ -1,0 +1,54 @@
+@import "@/shared/ui/variables.scss";
+
+.wrapper {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.city {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.info {
+  flex: 1 1 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+}
+
+.conditions {
+}
+
+.trash {
+  font-size: 32px;
+}
+
+.spinner {
+}
+
+.day {
+  background-color: $day;
+  color: $black;
+}
+.rain {
+  background-color: $rain;
+  color: $black;
+}
+.night {
+  background-color: $night;
+  color: $white;
+}
