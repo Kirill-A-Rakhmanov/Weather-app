@@ -34,4 +34,5 @@ export default defineConfig({
       include: "**/*.svg",
     }),
   ],
+  base: "/Weather-app",
 });

@@ -11,7 +11,7 @@ export const WeatherIcon = ({ icon, className }: Props) => {
     <div className={clsx(styles.wrapper, className)}>
       <img
         className={styles.image}
-        src={`/weather icons/${icon}.svg`}
+        src={`/Weather-app/weather icons/${icon}.svg`}
         alt="weather icon"
       />
     </div>
